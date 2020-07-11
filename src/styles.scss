@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap');
+
+html, body {
+  display: flex;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #F8F7F7;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+app-root {
+  height: 100%;
+  width: 100%;
+}
+
+.element-shadow {
+  -webkit-box-shadow: 0 3px 3px -1px rgba(7, 22, 96, 0.44);
+  -moz-box-shadow: 0 3px 3px -1px rgba(5,16,71,0.44);
+  box-shadow: 0 3px 3px -1px rgba(5,16,71,0.44);
+}
+
+h1 {
+  font-size: 18px;
+  font-family: 'Gothic A1', sans-serif;
+  margin: 0;
+}
+
+h2 {
+  font-size: 16px;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+h3 {
+  font-size: 14px;
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+h4 {
+  font-size: 12px;
+  font-family: 'Gothic A1', sans-serif;
+  margin: 0;
+}
+
+h5 {
+  font-size: 12px;
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+.app-dialog .mat-dialog-container {
+  width: 302px;
+  display: flex;
+  padding: 0;
+  border-radius: 0;
+}
+
+@media screen and (min-width: 430px) {
+  .app-dialog .mat-dialog-container {
+    width: 446px;
+  }
+}

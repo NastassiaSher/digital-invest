@@ -1,0 +1,159 @@
+{
+  "errorCode": null,
+  "errorMessage": null,
+  "body": {
+    "projectsList": [
+      {
+        "projectName": "Auditorio De Tenerife",
+        "totalAmount": 2500000,
+        "availableAmount": 450000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/7GNV2V6/auditorio-de-tenerife.jpg"
+      },
+      {
+        "projectId": "111",
+        "projectName": "Niarchos Foundation Cultural Center",
+        "totalAmount": 1800000,
+        "availableAmount": 120000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/S01nrF0/niarchos-foundation-cultural-center.jpg"
+      },
+      {
+        "projectId": "112",
+        "projectName": "Bodø Town Hall",
+        "totalAmount": 1340000,
+        "availableAmount": 50000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/zxg89BH/bod-town-hall.jpg"
+      },
+      {
+        "projectId": "113",
+        "projectName": "Library And Learning Centre",
+        "totalAmount": 34000,
+        "availableAmount": 100,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/xm4qSwR/library-and-learning-centre.jpg"
+      },
+      {
+        "projectId": "114",
+        "projectName": "City Of Art And Sciences",
+        "totalAmount": 2500000,
+        "availableAmount": 450000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/f9L1kvZ/city-of-art-and-sciences.jpg"
+      },
+      {
+        "projectId": "115",
+        "projectName": "Florida Polytechnic University",
+        "totalAmount": 25000000,
+        "availableAmount": 12620000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/R7671Fk/florida-polytechnic-university.jpg"
+      },
+      {
+        "projectId": "116",
+        "projectName": "Guggenheim Museum Bilbao",
+        "totalAmount": 4560000,
+        "availableAmount": 1340000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/fMYpXL3/guggenheim-museum-bilbao.jpg"
+      },
+      {
+        "projectId": "117",
+        "projectName": "Guangzhou Opera House",
+        "totalAmount": 5000000,
+        "availableAmount": 13000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/LdXF0Zf/guangzhou-opera-house.jpg"
+      },
+      {
+        "projectId": "118",
+        "projectName": "London Aquatics Centre",
+        "totalAmount": 1570000,
+        "availableAmount": 368900,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/bNVbg2X/london-aquatics-centre.jpg"
+      },
+      {
+        "projectId": "119",
+        "projectName": "Rome Museum Of 21st Century Art",
+        "totalAmount": 245000,
+        "availableAmount": 3000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/SJw86qR/rome-museum-of-21st-century-art.jpg"
+      },
+      {
+        "projectId": "120",
+        "projectName": "Vitra Fire Station Wiel Am Rhein",
+        "totalAmount": 120000,
+        "availableAmount": 100000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/JQ4fRC5/Com-Vitra-Vitra-Project-Expo-20170314.jpg"
+      },
+      {
+        "projectName": "Pierres Vives Building",
+        "totalAmount": 245000,
+        "availableAmount": 56000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/LhGkgKy/pierres-vives-building.jpg"
+      },
+      {
+        "projectId": "121",
+        "projectName": "Phæno Science Center",
+        "totalAmount": 8908700,
+        "availableAmount": 123400,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/9gBgs9N/Phaeno-Science-Center-in-Wolfsburg-Germany-It-was-designed-by-Zaha-Hadid.jpg"
+      },
+      {
+        "projectId": "122",
+        "projectName": "Beautiful Zaha Hadid Building",
+        "totalAmount": 5000000,
+        "availableAmount": 2500000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/54ZGD77/zaha-hadid-building.jpg"
+      },
+      {
+        "projectId": "123",
+        "projectName": "Ordrupgaard Museum",
+        "totalAmount": 567000,
+        "availableAmount": 24500,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/YB78cfF/ordrupgaard-museum.jpg"
+      },
+      {
+        "projectId": "124",
+        "projectName": "Zaragoza Bridge Pavilion",
+        "totalAmount": 1800000,
+        "availableAmount": 1050000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/zFW1kww/the-zaragoza-bridge-pavilion.jpg"
+      },
+      {
+        "projectId": "125",
+        "projectName": "Stedelijk Museum Of Modern Art",
+        "totalAmount": 3005000,
+        "availableAmount": 1050000,
+        "minInvestment": 100,
+        "maxInvestment": 10000,
+        "img": "https://i.ibb.co/Qvzjg0z/Benthem-Crouwel-Architekten-Amsterdam-Stedelijk-Museum-Amsterdam.jpg"
+      }
+    ]
+  }
+}

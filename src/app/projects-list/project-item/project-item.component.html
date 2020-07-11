@@ -1,0 +1,42 @@
+<div class="img-container">
+  <img [src]="project.img" alt="photo" class="photo-style">
+</div>
+
+<div class="project-name">
+  <h1>
+    {{project.projectName | uppercase }}
+  </h1>
+</div>
+
+<mat-progress-bar mode="determinate" [value]="progressValue" class="progress-bar"></mat-progress-bar>
+
+<div class="amount-container">
+  <div class="goal">
+    <h5>Financing goal</h5>
+    <h4>{{project.totalAmount | currency : 'EUR' : 'symbol' : '1.0-0' }}</h4>
+  </div>
+  <div class="availAmount">
+    <h5>Amount available</h5>
+    <h4>{{project.availableAmount | currency : 'EUR' : 'symbol' : '1.0-0' }}</h4>
+  </div>
+</div>
+
+<div class="invest-container">
+  <div class="minus" (click)="reduceInvAmount()">
+    <h1 class="minus"> - </h1>
+  </div>
+  <input type="text"
+         id="{{'invInput'+itemIndex}}"
+         name="invInput"
+         class="invest-inp"
+         #iInput
+         type="text"
+         [maxLength]="maxInpLength"
+         [value]="investInput"
+         (input)="inputChanged($event)">
+  <div class="plus" (click)="increaseInvAmount()">
+    <h1 class="plus"> + </h1>
+  </div>
+</div>
+
+<button id="investBtn" class="invest-btn" (click)="invest()">INVEST NOW</button>

@@ -1,0 +1,102 @@
+:host {
+
+  width: 286px;
+  height: 381px;
+  background-color: #FFFFFF;
+  margin: 10px;
+
+  .img-container {
+    width: 100%;
+    height: 160px;
+    margin-bottom: 22px;
+  }
+
+  .photo-style {
+    width: 286px;
+  }
+
+  .project-name {
+    height: 43px;
+    margin: 0 13px 10px 13px;
+  }
+
+  .progress-bar {
+    width: calc(100% - 26px);
+    height: 6px;
+    border-radius: 3px;
+    margin:  0 13px 10px 13px;
+  }
+
+  ::ng-deep .mat-progress-bar-buffer {
+    background-color: #DDF1E5;
+
+  }
+
+  ::ng-deep .mat-progress-bar-fill::after {
+    background-color: #8ED1A9;
+  }
+
+  .amount-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 13px 10px 13px;
+  }
+
+  .goal, .availAmount {
+    color: #8ED1A9;
+    h4 {
+      margin-bottom: 4px;
+    }
+  }
+
+  .availAmount {
+    float: right;
+  }
+
+  .invest-container {
+    height: 30px;
+    margin: 0 13px 5px 13px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .minus, .plus {
+    line-height: 28px;
+  }
+
+  .minus, .plus:hover {
+    cursor: pointer;
+  }
+
+  .invest-inp {
+    width: 80px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 700;
+    border: none;
+    margin: 0 15px;
+  }
+
+  .invest-btn {
+    width: 260px;
+    height: 36px;
+    margin: 0 13px;
+    border-radius: 18px;
+    border: none;
+    outline:none;
+    background-color: #8ED1A9;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Gothic A1', sans-serif;
+  }
+
+  .invest-btn:hover {
+    cursor: pointer;
+  }
+
+  .invest-btn:active {
+    opacity: 80%;
+  }
+}

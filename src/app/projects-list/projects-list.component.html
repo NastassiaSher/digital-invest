@@ -1,0 +1,7 @@
+<ng-container *ngFor="let project of (projectsList | async); let i = index">
+  <app-project-item class="element-shadow"
+                    [project]="project"
+                    [itemIndex]="i"
+                    (investToEmit)="startInvestmentProcess($event)"></app-project-item>
+</ng-container>
+

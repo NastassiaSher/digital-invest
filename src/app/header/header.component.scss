@@ -1,0 +1,114 @@
+:host {
+
+  #appHeader {
+    width: 80%;
+    height: 106px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+  }
+  .menu-btn__burger {
+    width: 22px;
+    height: 4px;
+    background: #272822;
+    box-shadow: 0 2px 5px rgba(255,101,47,.2);
+    transition: all .5s ease-in-out;
+  }
+  .menu-btn__burger::before,
+  .menu-btn__burger::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 4px;
+    background: #272822;
+    box-shadow: 0 2px 5px rgba(255,101,47,.2);
+    transition: all .5s ease-in-out;
+  }
+  .menu-btn__burger::before {
+    transform: translateY(-8px);
+  }
+  .menu-btn__burger::after {
+    transform: translateY(8px);
+  }
+  /* ANIMATION */
+  .menu-btn.open .menu-btn__burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+  }
+  .menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+  .menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+
+  .menu-options {
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .menu-wide {
+    display: none;
+  }
+
+  .menu-opened {
+    display: block;
+    position: fixed;
+    top: 106px;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: #80817A;
+    color: #d6d5d5;
+  };
+
+  .menu-opt {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .menu-opt:hover {
+    cursor: pointer;
+    color: white;
+  }
+
+  @media screen and (min-width: 1025px) {
+    .menu-wide {
+      width: 50%;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      top: 0;
+      right: 0;
+      height: auto;
+      justify-content: space-between;
+      background-color: #F8F7F7;
+      color: black;
+    }
+    .menu-btn {
+      display: none;
+    }
+    .menu-opt:hover {
+      color: #388056;
+    }
+  }
+
+}
+
+

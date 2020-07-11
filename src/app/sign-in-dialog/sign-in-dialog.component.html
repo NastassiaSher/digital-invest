@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h1 class="modal-title">{{dialogType | uppercase}}</h1>
+</div>
+<div class="modal-body">
+  <div class="info">
+    <h3>With your email address you can register in a few minutes free of charge</h3>
+  </div>
+
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm.value)" class="form-style">
+    <div class="form-input" *ngIf="dialogType === 'sign up'">
+      <input id="name" type="text" formControlName="name" placeholder="Name*">
+    </div>
+    <div class="form-input">
+      <input id="email" type="email" formControlName="email" placeholder="Email*">
+    </div>
+    <div class="form-input">
+      <input id="pass" type="password" formControlName="pass" placeholder="Password*">
+    </div>
+    <div class="form-input" *ngIf="dialogType === 'sign up'">
+      <input id="passConf" type="password" formControlName="passConf" placeholder="Confirm password*">
+    </div>
+    <div class="form-checkbox" *ngIf="dialogType === 'sign up'">
+      <input id="conditions" type="checkbox" formControlName="conditions" >
+      <label for="conditions"><h5>By clicking “Join now”, you agree that we process your information in accordance with these conditions.</h5></label>
+    </div>
+    <div class="forgot-pass-lbl" *ngIf="dialogType === 'sign in'">
+      <h5>Forgot password?</h5>
+    </div>
+    <button class="submit-btn" type="submit"><h1>{{btnLabel | uppercase}}</h1></button>
+  </form>
+
+</div>

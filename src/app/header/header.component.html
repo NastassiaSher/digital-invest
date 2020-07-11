@@ -1,0 +1,17 @@
+<div id="appHeader">
+  <div class="svg-style" inlineSVG="assets/img/logo_EV.svg"></div>
+  <div class="menu-btn" (click)="openCloseMenu()">
+    <div class="menu-btn__burger"></div>
+  </div>
+  <div class="menu-wide menu-options" [hidden]="!menuOpen">
+    <div id="aboutUs" class="menu-opt">About Us</div>
+    <div id="logIn" class="menu-opt" *ngIf="!userAuthorized" (click)="openSignInModal()">Sign In / Sign Up</div>
+    <div id="allProjects" class="menu-opt">Our Projects</div>
+    <div id="myProfile" class="menu-opt" *ngIf="userAuthorized">My profile</div>
+    <div id="logOut" class="menu-opt" *ngIf="userAuthorized">Sign Out</div>
+  </div>
+</div>
+
+
+
+
