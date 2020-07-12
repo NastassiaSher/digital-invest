@@ -17,7 +17,6 @@ import { MockedDataService } from '../mocks/mocked-data-service';
 import {environment} from '../environments/environment';
 import { SignInDialogComponent } from './sign-in-dialog/sign-in-dialog.component';
 import { ProfileComponent } from './profile/profile.component';
-import { NotificationDialogComponent } from './notification-dialog/notification-dialog.component';
 
 
 @NgModule({
@@ -27,8 +26,7 @@ import { NotificationDialogComponent } from './notification-dialog/notification-
     ProjectsListComponent,
     ProjectItemComponent,
     SignInDialogComponent,
-    ProfileComponent,
-    NotificationDialogComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
