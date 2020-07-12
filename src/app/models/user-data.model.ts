@@ -1,6 +1,6 @@
 export class UserData{
   name: string;
-  investments: Map<string, number>;
+  investments: any;
 
   constructor(name, investments) {
     this.name = name;

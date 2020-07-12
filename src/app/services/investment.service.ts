@@ -2,24 +2,38 @@ import { Injectable } from '@angular/core';
 import {AuthorizationService} from './authorization.service';
 import {ProjectsService} from './projects.service';
 import {LocalStorageService} from './local-storage.service';
+import {ModalService} from './modal.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InvestmentService {
 
-  constructor(private authService: AuthorizationService, private projectsService: ProjectsService, private storageService: LocalStorageService) { }
+  constructor(private authService: AuthorizationService,
+              private projectsService: ProjectsService,
+              private storageService: LocalStorageService,
+              private modalService: ModalService) { }
 
   startInvestmentProcess(investmentData): void {
     const currUser = this.authService.getUser();
+    const userData = this.storageService.get(currUser);
     // check if user logged in
-    if (!currUser) {
-      // TODO show login/reg modal: 'Please Log in!'
-    } else {
-      // set new data for project
-      this.setNewDataForProject(investmentData);
-      // set new data for user
-      this.setNewDataForUser(currUser, investmentData);
+    if (currUser){
+      if (!userData.investments[investmentData.projectId]) {
+        // set new data for project
+        this.setNewDataForProject(investmentData);
+        // set new data for user
+        this.setNewDataForUser(currUser, userData, investmentData);
+        this.modalService.openInfoModal({
+          title: 'Investment',
+          message: 'Success!'
+        });
+      } else {
+        this.modalService.openInfoModal({
+          title: 'Investment',
+          message: 'You\'ve already invested in this project.'
+        });
+      }
     }
   }
 
@@ -28,18 +42,14 @@ export class InvestmentService {
     for (const project of projects) {
       if (project.projectId === investmentData.projectId) {
         project.availableAmount = project.availableAmount - investmentData.investedAmount;
-        break; // check if break works in this loop
+        break;
       }
     }
     this.projectsService.setProjectsOnStorage(projects);
   }
 
-  setNewDataForUser(user, investmentData): void {
-    const userData = this.storageService.get(user);
-    if (userData.investments.has(investmentData.projectId)) {
-      const totalInvAmount = userData.investments.get(investmentData.projectId) + investmentData.investedAmount;
-      userData.investments.set(investmentData.projectId, totalInvAmount);
-    }
-    this.storageService.set(user, userData);
+  setNewDataForUser(currUser, userData, investmentData): void {
+    userData.investments[investmentData.projectId] = investmentData.investedAmount;
+    this.storageService.set(currUser, userData);
   }
 }

@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div class="invest-container">
+<div *ngIf="!flag" class="invest-container">
   <div class="minus" (click)="reduceInvAmount()">
     <h1 class="minus"> - </h1>
   </div>
@@ -39,4 +39,12 @@
   </div>
 </div>
 
-<button id="investBtn" class="invest-btn" (click)="invest()">INVEST NOW</button>
+<button *ngIf="!flag"
+        id="investBtn"
+        class="invest-btn"
+        (click)="invest()"
+        [ngClass]="{'btn-disabled': progressValue === 100}"
+        [disabled]="progressValue === 100">INVEST NOW</button>
+<div *ngIf="flag" id="invAmount">
+  Invested {{project.inv | currency : 'EUR' : 'symbol' : '1.0-0'}}
+</div>

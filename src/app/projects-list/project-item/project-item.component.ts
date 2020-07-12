@@ -1,6 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ProjectItem} from '../../models/project-item.model';
 import {InvestmentData} from '../../models/investment-data.model';
+import {ModalService} from '../../services/modal.service';
 
 @Component({
   selector: 'app-project-item',
@@ -9,18 +10,16 @@ import {InvestmentData} from '../../models/investment-data.model';
 })
 export class ProjectItemComponent implements OnInit {
 
-  @Input()
-  project: ProjectItem;
-  @Input()
-  itemIndex: number;
+  @Input() project: ProjectItem;
+  @Input() itemIndex: number;
+  @Input() flag: string;
   progressValue: number;
   investInput: string;
   @ViewChild('iInput', {static: false}) input: ElementRef;
   maxInpLength: number;
-  showInputError = false;
   @Output() investToEmit = new EventEmitter<InvestmentData>();
 
-  constructor() { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit(): void {
     this.calculateProgressBarValue();
@@ -41,21 +40,21 @@ export class ProjectItemComponent implements OnInit {
     this.maxInpLength = this.project.maxInvestment.toString().length;
   }
 
-  reduceInvAmount() {
+  reduceInvAmount(): void {
     const inpValue = this.input.nativeElement.value;
     if (+inpValue - 100 >= this.project.minInvestment) {
       this.investInput = (+inpValue - 100).toString();
     }
   }
 
-  increaseInvAmount() {
+  increaseInvAmount(): void {
     const inpValue = this.input.nativeElement.value;
     if (+inpValue + 100 <= this.project.maxInvestment) {
       this.investInput = (+inpValue + 100).toString();
     }
   }
 
-  inputChanged(input) {
+  inputChanged(input): void {
     this.investInput = input.target.value;
     if (this.investInput === '') {
       this.investInput = '0';
@@ -71,20 +70,22 @@ export class ProjectItemComponent implements OnInit {
     }
   }
 
-  private validate(s) {
+  private validate(s): boolean {
     const rgx = /^[0-9]*?[0-9]*$/;
     return s.match(rgx);
   }
 
-  invest() {
+  invest(): void {
     // check if amount is valid
-    // TODO check if user logged in in authentic.service!!!
     if (+this.investInput < this.project.maxInvestment &&
-      +this.investInput > this.project.minInvestment &&
-      +this.investInput < this.project.availableAmount) {
+      +this.investInput >= this.project.minInvestment &&
+      +this.investInput <= this.project.availableAmount) {
       this.investToEmit.emit({projectId: this.project.projectId, investedAmount: +this.investInput});
     } else {
-      this.showInputError = true;
+      this.modalService.openInfoModal({
+        title: 'Investment',
+        message: 'Invalid amount!'
+      });
     }
   }
 

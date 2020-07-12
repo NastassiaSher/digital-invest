@@ -1,8 +1,10 @@
+@import "../../../sass/_variables";
+
 :host {
 
   width: 286px;
   height: 381px;
-  background-color: #FFFFFF;
+  background-color: $white;
   margin: 10px;
 
   .img-container {
@@ -28,12 +30,12 @@
   }
 
   ::ng-deep .mat-progress-bar-buffer {
-    background-color: #DDF1E5;
+    background-color: $green_light;
 
   }
 
   ::ng-deep .mat-progress-bar-fill::after {
-    background-color: #8ED1A9;
+    background-color: $green;
   }
 
   .amount-container {
@@ -43,7 +45,7 @@
   }
 
   .goal, .availAmount {
-    color: #8ED1A9;
+    color: $green;
     h4 {
       margin-bottom: 4px;
     }
@@ -85,8 +87,8 @@
     border-radius: 18px;
     border: none;
     outline:none;
-    background-color: #8ED1A9;
-    color: white;
+    background-color: $green;
+    color: $white;
     font-size: 16px;
     font-weight: 700;
     font-family: 'Gothic A1', sans-serif;
@@ -98,5 +100,24 @@
 
   .invest-btn:active {
     opacity: 80%;
+  }
+
+  #invAmount {
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: $green;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .btn-disabled {
+    background-color: $grey_dark;
+  }
+
+  .btn-disabled:hover {
+    cursor: not-allowed;
   }
 }

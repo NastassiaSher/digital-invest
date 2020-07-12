@@ -7,6 +7,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,6 +16,8 @@ import { ProjectItemComponent } from './projects-list/project-item/project-item.
 import { MockedDataService } from '../mocks/mocked-data-service';
 import {environment} from '../environments/environment';
 import { SignInDialogComponent } from './sign-in-dialog/sign-in-dialog.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NotificationDialogComponent } from './notification-dialog/notification-dialog.component';
 
 
 @NgModule({
@@ -23,7 +26,9 @@ import { SignInDialogComponent } from './sign-in-dialog/sign-in-dialog.component
     HeaderComponent,
     ProjectsListComponent,
     ProjectItemComponent,
-    SignInDialogComponent
+    SignInDialogComponent,
+    ProfileComponent,
+    NotificationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import { SignInDialogComponent } from './sign-in-dialog/sign-in-dialog.component
     BrowserAnimationsModule,
     MatProgressBarModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

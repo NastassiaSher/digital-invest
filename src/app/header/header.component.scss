@@ -1,3 +1,5 @@
+@import "../../sass/_variables";
+
 :host {
 
   #appHeader {
@@ -72,8 +74,8 @@
     right: 0;
     width: 50%;
     height: 100vh;
-    background-color: #80817A;
-    color: #d6d5d5;
+    background-color: $grey_dark;
+    color: $grey_light;
   };
 
   .menu-opt {
@@ -85,7 +87,28 @@
 
   .menu-opt:hover {
     cursor: pointer;
+    color: $white;
+  }
+
+  a {
+    color: $grey_light;
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
     color: white;
+  }
+
+  a:active {
+    text-decoration: none;
   }
 
   @media screen and (min-width: 1025px) {
@@ -98,14 +121,21 @@
       right: 0;
       height: auto;
       justify-content: space-between;
-      background-color: #F8F7F7;
-      color: black;
+      background-color: $grey_light_bg;
+      color: $black;
     }
     .menu-btn {
       display: none;
     }
     .menu-opt:hover {
-      color: #388056;
+      color: $green;
+    }
+    a {
+      color: $black;
+    }
+
+    a:hover {
+      color: $green;
     }
   }
 

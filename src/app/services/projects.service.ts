@@ -18,10 +18,14 @@ export class ProjectsService {
   }
 
   callGetProjects(): void {
-    this.getProjectsList().subscribe(res => {
-      this.projectsList.next(res.body.projectsList);
-      this.storageService.set('projectsList', this.projectsList.value);
-    });
+    const projects = this.storageService.get('projectsList');
+    if (!projects) {
+      this.getProjectsList().subscribe(res => {
+        this.projectsList.next(res.body.projectsList);
+        this.storageService.set('projectsList', this.projectsList.value);
+      });
+    }
+    this.projectsList.next(projects);
   }
 
   setProjectsOnStorage(projectsList): void {
@@ -31,6 +35,20 @@ export class ProjectsService {
 
   getProjectsFromStorage(): Array<ProjectItem> {
     return this.storageService.get('projectsList');
+  }
+
+  getProjectsById(): void {
+    const projects = this.storageService.get('projectsList');
+    const userData = this.storageService.get(this.storageService.get('currentUser'));
+    userData.investments = new Map(Object.entries(userData.investments));
+    const usersProjects = [];
+    projects.forEach((project) => {
+      if (userData.investments.has(project.projectId)) {
+        usersProjects.push(project);
+        usersProjects[usersProjects.length - 1].inv = userData.investments.get(project.projectId);
+      }
+    });
+    this.projectsList.next(usersProjects);
   }
 
 }

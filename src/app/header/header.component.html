@@ -4,11 +4,11 @@
     <div class="menu-btn__burger"></div>
   </div>
   <div class="menu-wide menu-options" [hidden]="!menuOpen">
-    <div id="aboutUs" class="menu-opt">About Us</div>
-    <div id="logIn" class="menu-opt" *ngIf="!userAuthorized" (click)="openSignInModal()">Sign In / Sign Up</div>
-    <div id="allProjects" class="menu-opt">Our Projects</div>
-    <div id="myProfile" class="menu-opt" *ngIf="userAuthorized">My profile</div>
-    <div id="logOut" class="menu-opt" *ngIf="userAuthorized">Sign Out</div>
+    <div id="signIn" class="menu-opt" *ngIf="!userAuthorized" (click)="openSignInModal()">Sign In</div>
+    <div id="signUp" class="menu-opt" *ngIf="!userAuthorized" (click)="openSignUpModal()">Sign Up</div>
+    <div id="allProjects" class="menu-opt" (click)="openCloseMenu()"><a routerLink="" routerLinkActive="active">Our Projects</a></div>
+    <div id="myProfile" class="menu-opt" *ngIf="userAuthorized" (click)="openCloseMenu()"><a routerLink="/profile" routerLinkActive="active">My Profile</a></div>
+    <div id="logOut" class="menu-opt" *ngIf="userAuthorized" (click)="signOut()"><a routerLink="" routerLinkActive="active">Sign Out</a></div>
   </div>
 </div>
 

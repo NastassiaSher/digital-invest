@@ -1,8 +1,10 @@
+@import "../sass/_variables";
+
 app-header {
   width: 100%;
   display: flex;
   justify-content: center;
   position: fixed;
   z-index: 99;
-  background-color: #F8F7F7;
+  background-color: $grey_light_bg;
 }

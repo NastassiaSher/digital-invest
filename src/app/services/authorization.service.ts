@@ -10,22 +10,30 @@ export class AuthorizationService {
   constructor(private storageService: LocalStorageService) { }
 
   registerNewUser(newUserData): void {
-    const token = btoa(newUserData.email + '' + newUserData.pass);
-    const newUser = new UserData(newUserData.name, new Map());
+    const token = btoa(newUserData.email + ':' + newUserData.pass);
+    const newUser = new UserData(newUserData.name, {});
     this.storageService.set(token, newUser);
     this.storageService.set('currentUser', token);
   }
 
-  loginUser(loginData): void {
-    const token = btoa(loginData.email + '' + loginData.pass);
+  loginUser(loginData): boolean {
+    const token = btoa(loginData.email + ':' + loginData.pass);
     if (this.storageService.get(token)) {
       this.storageService.set('currentUser', token);
-    } else {
-      // TODO show error: no such user!
+      return true;
     }
+    return false;
   }
 
   getUser(): string {
     return this.storageService.get('currentUser');
+  }
+
+  signOut(): void {
+    this.storageService.remove('currentUser');
+  }
+
+  decodeUser(token): string {
+    return atob(token);
   }
 }

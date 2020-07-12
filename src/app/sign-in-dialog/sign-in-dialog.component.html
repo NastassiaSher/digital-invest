@@ -1,31 +1,42 @@
 <div class="modal-header">
-  <h1 class="modal-title">{{dialogType | uppercase}}</h1>
+  <h1 class="modal-title">{{dialogTypeGetter | uppercase}}</h1>
 </div>
 <div class="modal-body">
   <div class="info">
-    <h3>With your email address you can register in a few minutes free of charge</h3>
+    <h3 *ngIf="dialogTypeGetter === 'sign up'">With your email address you can register in a few minutes free of charge.</h3>
+    <h3 *ngIf="dialogTypeGetter === 'sign in'">With your email address you can manage your investments, bids and your profile.</h3>
   </div>
 
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm.value)" class="form-style">
-    <div class="form-input" *ngIf="dialogType === 'sign up'">
-      <input id="name" type="text" formControlName="name" placeholder="Name*">
+    <div class="form-input" *ngIf="dialogTypeGetter === 'sign up'">
+      <input id="name" type="text" formControlName="name" placeholder="Name*" [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+      <h5 *ngIf="isSubmitted && formControls.name.errors" class="error-msg">Name is required.</h5>
     </div>
     <div class="form-input">
-      <input id="email" type="email" formControlName="email" placeholder="Email*">
+      <input id="email" type="email" formControlName="email" placeholder="Email*" [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+      <h5 *ngIf="isSubmitted && formControls.email.errors" class="error-msg">Please enter a valid email address.</h5>
     </div>
     <div class="form-input">
-      <input id="pass" type="password" formControlName="pass" placeholder="Password*">
+      <input id="pass" type="password" formControlName="pass" placeholder="Password*" [ngClass]="{ 'has-error': isSubmitted && formControls.pass.errors }">
+      <h5 *ngIf="isSubmitted && formControls.pass.errors" class="error-msg">Password should be minimum 8 characters.</h5>
     </div>
-    <div class="form-input" *ngIf="dialogType === 'sign up'">
-      <input id="passConf" type="password" formControlName="passConf" placeholder="Confirm password*">
+    <div class="form-input" *ngIf="dialogTypeGetter === 'sign up'">
+      <input id="passConf" type="password" formControlName="passConf" placeholder="Confirm password*" [ngClass]="{ 'has-error': isSubmitted && (formControls.passConf.errors || formErrors)}">
+      <h5 *ngIf="isSubmitted && (formControls.passConf.errors || formErrors)" class="error-msg">Password confirmation must match Password.</h5>
     </div>
-    <div class="form-checkbox" *ngIf="dialogType === 'sign up'">
-      <input id="conditions" type="checkbox" formControlName="conditions" >
-      <label for="conditions"><h5>By clicking “Join now”, you agree that we process your information in accordance with these conditions.</h5></label>
+    <div class="form-checkbox" *ngIf="dialogTypeGetter === 'sign up'">
+      <div id="checkLblContainer">
+        <input id="conditions" type="checkbox" formControlName="conditions" [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+        <h5>By clicking “Join now”, you agree that we process your information in accordance with these conditions.</h5>
+      </div>
+      <h5 *ngIf="isSubmitted && formControls.conditions.errors" class="error-msg">Please indicate that you accept Conditions.</h5>
     </div>
-    <div class="forgot-pass-lbl" *ngIf="dialogType === 'sign in'">
+    <div class="forgot-pass-lbl" *ngIf="dialogTypeGetter === 'sign in'">
       <h5>Forgot password?</h5>
+      <h5 (click)="showSignUpDialogContent()">Sign up here!</h5>
+      <h5 *ngIf="isSubmitted && showLoginError" class="error-msg">The email address and/or password isn't right.</h5>
     </div>
+    <h5 id="signInHere" *ngIf="dialogTypeGetter === 'sign up'" (click)="showSignInDialogContent()">Sign in here!</h5>
     <button class="submit-btn" type="submit"><h1>{{btnLabel | uppercase}}</h1></button>
   </form>
 

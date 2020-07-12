@@ -7,6 +7,7 @@ html, body {
   width: 100%;
   background-color: #F8F7F7;
   font-family: 'Gothic A1', sans-serif;
+  min-width: 360px;
 }
 
 app-root {
@@ -56,6 +57,7 @@ h5 {
   display: flex;
   padding: 0;
   border-radius: 0;
+  min-width: 302px;
 }
 
 @media screen and (min-width: 430px) {

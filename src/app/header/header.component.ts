@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthorizationService} from '../services/authorization.service';
-import {MatDialog} from '@angular/material/dialog';
-import {SignInDialogComponent} from '../sign-in-dialog/sign-in-dialog.component';
+import {ModalService} from '../services/modal.service';
 
 @Component({
   selector: 'app-header',
@@ -13,13 +12,14 @@ export class HeaderComponent implements OnInit {
   menuOpen = false;
   menuBtn: HTMLElement;
   menuOptions: HTMLElement;
-  userAuthorized: boolean;
 
-  constructor(private authService: AuthorizationService, public dialog: MatDialog) { }
+  constructor(private authService: AuthorizationService,
+              private modalService: ModalService) { }
 
-  ngOnInit(): void {
-    this.userAuthorized = !!this.authService.getUser();
-    console.log(this.userAuthorized);
+  ngOnInit(): void {}
+
+  get userAuthorized(): boolean {
+    return !!this.authService.getUser();
   }
 
   openCloseMenu(): void {
@@ -37,13 +37,21 @@ export class HeaderComponent implements OnInit {
   }
 
   openSignInModal(): void {
-    if (this.menuOpen) {
-      this.openCloseMenu();
-    }
-    const dialogRef = this.dialog.open(SignInDialogComponent,  {panelClass: 'app-dialog', data: 'sign up'});
+    this.openCloseMenu();
+    this.modalService.openSignInModal();
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+  openSignUpModal(): void {
+    this.openCloseMenu();
+    this.modalService.openSignUpModal();
+  }
+
+  signOut(): void {
+    this.openCloseMenu();
+    this.authService.signOut();
+    this.modalService.openInfoModal({
+      title: 'Sign out',
+      message: 'You are signed out!'
     });
   }
 

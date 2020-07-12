@@ -4,6 +4,7 @@
   "body": {
     "projectsList": [
       {
+        "projectId": "110",
         "projectName": "Auditorio De Tenerife",
         "totalAmount": 2500000,
         "availableAmount": 450000,
@@ -102,6 +103,7 @@
         "img": "https://i.ibb.co/JQ4fRC5/Com-Vitra-Vitra-Project-Expo-20170314.jpg"
       },
       {
+        "projectId": "126",
         "projectName": "Pierres Vives Building",
         "totalAmount": 245000,
         "availableAmount": 56000,
