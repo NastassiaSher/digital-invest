@@ -1,2 +1,6 @@
 <app-header class="element-shadow"></app-header>
+<div id="notification" *ngIf="showNotification">
+  <span class="material-icons"> check_circle</span>
+  {{notificationMessage.value}}
+</div>
 <router-outlet></router-outlet>

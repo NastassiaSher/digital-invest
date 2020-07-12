@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {AuthorizationService} from '../services/authorization.service';
-import {ModalService} from '../services/modal.service';
+import {NotificationService} from '../services/notification.service';
 
 @Component({
   selector: 'app-sign-up-dialog',
@@ -20,7 +20,7 @@ export class SignInDialogComponent implements OnInit {
               private formBuilder: FormBuilder,
               @Inject(MAT_DIALOG_DATA) public dialogType: string,
               public dialogRef: MatDialogRef<SignInDialogComponent>,
-              private modalService: ModalService) {
+              private notifService: NotificationService) {
     this.signUpForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -72,10 +72,7 @@ export class SignInDialogComponent implements OnInit {
       }
     }
     if (this.authService.getUser()) {
-      this.modalService.openInfoModal({
-        title: 'Sign in',
-        message: 'You are signed in!'
-      });
+      this.notifService.setNotification('You are signed in!');
     }
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthorizationService} from '../services/authorization.service';
 import {ModalService} from '../services/modal.service';
+import {NotificationService} from '../services/notification.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
   menuOptions: HTMLElement;
 
   constructor(private authService: AuthorizationService,
-              private modalService: ModalService) { }
+              private modalService: ModalService,
+              private notifService: NotificationService) { }
 
   ngOnInit(): void {}
 
@@ -49,10 +51,7 @@ export class HeaderComponent implements OnInit {
   signOut(): void {
     this.openCloseMenu();
     this.authService.signOut();
-    this.modalService.openInfoModal({
-      title: 'Sign out',
-      message: 'You are signed out!'
-    });
+    this.notifService.setNotification('You are signed out!');
   }
 
 }

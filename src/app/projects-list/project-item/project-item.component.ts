@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ProjectItem} from '../../models/project-item.model';
 import {InvestmentData} from '../../models/investment-data.model';
-import {ModalService} from '../../services/modal.service';
+import {NotificationService} from '../../services/notification.service';
 
 @Component({
   selector: 'app-project-item',
@@ -19,7 +19,7 @@ export class ProjectItemComponent implements OnInit {
   maxInpLength: number;
   @Output() investToEmit = new EventEmitter<InvestmentData>();
 
-  constructor(private modalService: ModalService) { }
+  constructor(private notifService: NotificationService) { }
 
   ngOnInit(): void {
     this.calculateProgressBarValue();
@@ -82,12 +82,8 @@ export class ProjectItemComponent implements OnInit {
       +this.investInput <= this.project.availableAmount) {
       this.investToEmit.emit({projectId: this.project.projectId, investedAmount: +this.investInput});
     } else {
-      this.modalService.openInfoModal({
-        title: 'Investment',
-        message: 'Invalid amount!'
-      });
+      this.notifService.setNotification('Invalid amount!');
     }
   }
-
 
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {AuthorizationService} from './authorization.service';
 import {ProjectsService} from './projects.service';
 import {LocalStorageService} from './local-storage.service';
-import {ModalService} from './modal.service';
+import {NotificationService} from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class InvestmentService {
   constructor(private authService: AuthorizationService,
               private projectsService: ProjectsService,
               private storageService: LocalStorageService,
-              private modalService: ModalService) { }
+              private notifService: NotificationService) { }
 
   startInvestmentProcess(investmentData): void {
     const currUser = this.authService.getUser();
@@ -24,15 +24,9 @@ export class InvestmentService {
         this.setNewDataForProject(investmentData);
         // set new data for user
         this.setNewDataForUser(currUser, userData, investmentData);
-        this.modalService.openInfoModal({
-          title: 'Investment',
-          message: 'Success!'
-        });
+        this.notifService.setNotification('Success!');
       } else {
-        this.modalService.openInfoModal({
-          title: 'Investment',
-          message: 'You\'ve already invested in this project.'
-        });
+        this.notifService.setNotification('You\'ve already invested in this project.');
       }
     }
   }
